@@ -18,7 +18,7 @@ const AppHeaderContainer = styled.div`
   z-index: 99;
   /*background-color: #ff294a;*/
   color: #fff;
-  background-color: rgb(27, 29, 30);
+  background-color: rgb(42, 43, 44);
 `;
 
 const FooterSeparator = styled.span`
@@ -90,7 +90,7 @@ export default function Header() {
           </HeaderSection>
           <HeaderSection style={{ justifyContent: 'center' }}>
             <LogoLink to="/">
-              <StyledTitle>Covid Stats</StyledTitle>
+              <StyledTitle>CovidTrack</StyledTitle>
             </LogoLink>
           </HeaderSection>
           <HeaderSection style={{ justifyContent: 'flex-end' }}></HeaderSection>
@@ -113,12 +113,10 @@ export default function Header() {
           </HeaderSection>
           <HeaderSection style={{ justifyContent: 'center' }}>
             <LogoLink to="/">
-              <StyledTitle>Untitled</StyledTitle>
+              <StyledTitle>CovidTrack</StyledTitle>
             </LogoLink>
           </HeaderSection>
-          <HeaderSection style={{ justifyContent: 'flex-end' }}>
-            hi
-          </HeaderSection>
+          <HeaderSection style={{ justifyContent: 'flex-end' }}></HeaderSection>
         </HeaderContentContainer>
         <Drawer
           placement="left"

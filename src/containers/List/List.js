@@ -36,9 +36,12 @@ const PageContainer = styled.div`
   align-items: center;
   width: 100%;
   flex-direction: column;
-  margin-top: 15px;
+  margin-top: 20px;
   flex-wrap: wrap;
   background-color: rgb(27, 29, 30);
+  @media (min-width: 900px) {
+    margin-top: 90px;
+  }
 `;
 
 export default function List() {
