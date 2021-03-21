@@ -49,12 +49,14 @@ class App extends Component {
     super(props);
     this.state = {
       covidData: [],
+      loading: true,
     };
   }
 
   setCovidData = (data) => {
     this.setState({
       covidData: data,
+      loading: false,
     });
   };
 
@@ -82,6 +84,7 @@ class App extends Component {
   render() {
     const contextValues = {
       covidData: this.state.covidData || [],
+      loading: this.state.loading,
     };
 
     return (
