@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { RiVirusLine, RiVirusFill } from 'react-icons/ri';
+import { RiVirusFill } from 'react-icons/ri';
 import { BigScreenOnly, SmallScreenOnly } from './responsiveComponents';
 import 'antd/dist/antd.css';
 import '../../App.css';
