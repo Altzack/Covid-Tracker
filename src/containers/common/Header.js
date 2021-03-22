@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { DesktopOnly, MobileOnly } from './responsiveComponents';
+import { RiVirusLine, RiVirusFill } from 'react-icons/ri';
+import { BigScreenOnly, SmallScreenOnly } from './responsiveComponents';
 import 'antd/dist/antd.css';
 import '../../App.css';
 
@@ -53,11 +54,10 @@ const StyledHeader = styled.h3`
   }
 `;
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.div`
   color: #fff;
-  margin-bottom: 0;
-  letter-spacing: 3px;
-  font-family: Rubik;
+  align-items: center;
+  font-size: 30px;
 `;
 
 const LogoLink = styled(Link)`
@@ -80,7 +80,7 @@ export default function Header() {
 
   return (
     <AppHeaderContainer>
-      <DesktopOnly>
+      <BigScreenOnly>
         <HeaderContentContainer>
           <HeaderSection style={{ justifyContent: 'flex-start' }}>
             <Link style={{ textDecoration: 'none', color: '#000' }} to="/">
@@ -88,15 +88,23 @@ export default function Header() {
             </Link>
             <FooterSeparator></FooterSeparator>
           </HeaderSection>
-          <HeaderSection style={{ justifyContent: 'center' }}>
-            <LogoLink to="/">
-              <StyledTitle>CovidTrack</StyledTitle>
+          <HeaderSection style={{ justifyContent: 'center', width: '70%' }}>
+            <LogoLink
+              to="/"
+              style={{ display: 'inline-flex', alignItems: 'center' }}
+            >
+              <StyledTitle>United States Coronavirus Data</StyledTitle>
+              <StyledTitle>
+                <RiVirusFill
+                  style={{ marginTop: 12, marginLeft: 15, color: 'green' }}
+                />
+              </StyledTitle>
             </LogoLink>
           </HeaderSection>
           <HeaderSection style={{ justifyContent: 'flex-end' }}></HeaderSection>
         </HeaderContentContainer>
-      </DesktopOnly>
-      <MobileOnly>
+      </BigScreenOnly>
+      <SmallScreenOnly>
         <HeaderContentContainer>
           <HeaderSection style={{ justifyContent: 'flex-start' }}>
             <Button
@@ -111,9 +119,19 @@ export default function Header() {
               <MenuOutlined />
             </Button>
           </HeaderSection>
-          <HeaderSection style={{ justifyContent: 'center' }}>
-            <LogoLink to="/">
-              <StyledTitle>CovidTrack</StyledTitle>
+          <HeaderSection style={{ justifyContent: 'center', width: '100%' }}>
+            <LogoLink
+              to="/"
+              style={{ display: 'inline-flex', alignItems: 'center' }}
+            >
+              <StyledTitle style={{ fontSize: 16.5 }}>
+                US Coronavirus Data
+              </StyledTitle>
+              <StyledTitle>
+                <RiVirusFill
+                  style={{ marginTop: 12, marginLeft: 15, color: 'green' }}
+                />
+              </StyledTitle>
             </LogoLink>
           </HeaderSection>
           <HeaderSection style={{ justifyContent: 'flex-end' }}></HeaderSection>
@@ -140,7 +158,7 @@ export default function Header() {
             <h3>Blah</h3>
           </Link>
         </Drawer>
-      </MobileOnly>
+      </SmallScreenOnly>
     </AppHeaderContainer>
   );
 }

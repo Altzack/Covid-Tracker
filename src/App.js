@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 import FourOhFour from './containers/common/FourOhFour';
-import { useResponsive } from './containers/common/responsiveComponents';
+import { useIsTabletOrMobile } from './containers/common/responsiveComponents';
 import Footer from './containers/common/Footer';
 import Header from './containers/common/Header';
 import AppContext from './AppContext';
@@ -34,7 +34,7 @@ const ContentContainer = styled.div`
 `;
 
 const AppWrapper = withRouter(({ children }) => {
-  const { isTabletOrMobile } = useResponsive();
+  const { isTabletOrMobile } = useIsTabletOrMobile();
   return (
     <AppContainer isMobile={isTabletOrMobile}>
       <Header />
