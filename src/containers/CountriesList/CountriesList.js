@@ -8,8 +8,9 @@ import { useIsSmallScreen } from '../common/responsiveComponents';
 const StyleTable = styled(Table)`
   display: flex;
   justify-content: center;
-  padding: 10px;
   width: 100%;
+  padding: 10px;
+
   @media (min-width: 900px) {
   }
 `;
@@ -19,9 +20,13 @@ const PageContainer = styled(Row)`
   //   align-items: center;
   //   width: 100%;
   //   flex-direction: column;
+  margin-top: 30px;
   //   flex-wrap: wrap;
   //   background-color: rgb(27, 29, 30);
-
+  @media (min-width: 600px) {
+    margin-bottom: 50px;
+    margin-top: 0;
+  }
   display: flex;
   justify-content: center;
 `;
@@ -29,22 +34,22 @@ const TableContainer = styled.div`
   width: 200px;
 `;
 
-export default function List() {
+export default function CountriesList() {
   const data = useContext(AppContext);
   const isSmallScreen = useIsSmallScreen();
 
   const columns = [
     {
-      title: 'State',
-      dataIndex: 'state',
-      key: 'state',
+      title: 'Country',
+      dataIndex: 'country',
+      key: 'country',
     },
-    {
-      title: 'Population',
-      dataIndex: 'population',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.population - b.population,
-    },
+    // {
+    //   title: 'Population',
+    //   dataIndex: 'population',
+    //   defaultSortOrder: 'descend',
+    //   sorter: (a, b) => a.population - b.population,
+    // },
 
     {
       title: 'Cases',
@@ -58,15 +63,20 @@ export default function List() {
       key: 'deaths',
       sorter: (a, b) => a.deaths - b.deaths,
     },
+    {
+      title: 'Active',
+      dataIndex: 'active',
+      key: 'active',
+      sorter: (a, b) => a.deaths - b.deaths,
+    },
   ];
 
-  const covidData = data.covidData.map((data) => {
+  const covidData = data.countriesData.map((data) => {
     return {
-      key: data.fips,
-      state: data.state,
-      population: Number(data.population).toLocaleString(),
-      cases: Number(data.actuals.cases).toLocaleString(),
-      deaths: Number(data.actuals.deaths).toLocaleString(),
+      country: data.country,
+      cases: Number(data.cases).toLocaleString(),
+      deaths: Number(data.deaths).toLocaleString(),
+      active: Number(data.active).toLocaleString(),
     };
   });
 
@@ -109,7 +119,7 @@ export default function List() {
             size={isSmallScreen ? 'small' : 'large'}
             tableLayout="auto"
             onChange={onChange}
-            title={() => 'United States Coronavirus Data'}
+            title={() => 'Global Coronavirus Data'}
             bordered
           />
         </TableContainer>

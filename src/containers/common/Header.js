@@ -36,7 +36,7 @@ const HeaderSection = styled.div`
 `;
 
 const HeaderContentContainer = styled.div`
-  font-family: Rubik;
+  font-family: Roboto Condensed;
   font-weight: 500;
   max-width: 1200px;
   display: flex;
@@ -57,7 +57,7 @@ const StyledHeader = styled.h3`
 const StyledTitle = styled.div`
   color: #000;
   align-items: center;
-  font-size: 30px;
+  font-size: 25px;
 `;
 
 const LogoLink = styled(Link)`
@@ -93,10 +93,10 @@ export default function Header() {
               to="/"
               style={{ display: 'inline-flex', alignItems: 'center' }}
             >
-              <StyledTitle>United States Coronavirus Data</StyledTitle>
+              <StyledTitle>Covid Tracker</StyledTitle>
               <StyledTitle>
                 <RiVirusFill
-                  style={{ marginTop: 12, marginLeft: 15, color: 'green' }}
+                  style={{ marginTop: 12, marginLeft: 12, color: 'green' }}
                 />
               </StyledTitle>
             </LogoLink>
@@ -125,11 +125,11 @@ export default function Header() {
               style={{ display: 'inline-flex', alignItems: 'center' }}
             >
               <StyledTitle style={{ fontSize: 16.5 }}>
-                US Coronavirus Data
+                Covid Tracker
               </StyledTitle>
               <StyledTitle>
                 <RiVirusFill
-                  style={{ marginTop: 12, marginLeft: 15, color: 'green' }}
+                  style={{ marginTop: 12, marginLeft: 12, color: 'green' }}
                 />
               </StyledTitle>
             </LogoLink>

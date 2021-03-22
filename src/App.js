@@ -51,12 +51,20 @@ class App extends Component {
     this.state = {
       covidData: [],
       loading: true,
+      countriesData: [],
     };
   }
 
   setCovidData = (data) => {
     this.setState({
       covidData: data,
+      loading: false,
+    });
+  };
+
+  setCountriesData = (data) => {
+    this.setState({
+      countriesData: data,
       loading: false,
     });
   };
@@ -78,18 +86,38 @@ class App extends Component {
       });
   };
 
+  getCountriesData = () => {
+    fetch(`${config.COUNTRIES_API_ENDPOINT}`, {
+      method: 'GET',
+      headers: {},
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        return res.json();
+      })
+      .then(this.setCountriesData)
+      .catch((err) => {
+        message.error(`Please try again later: ${err}`);
+      });
+  };
+
   componentDidMount = () => {
     this.getCovidData();
+    this.getCountriesData();
   };
 
   render() {
     const contextValues = {
       covidData: this.state.covidData || [],
       loading: this.state.loading,
+      countriesData: this.state.countriesData,
     };
 
     return (
       <AppContext.Provider value={contextValues}>
+        {console.log(this.state.countriesData)}
         <>
           <Router>
             <QueryParamProvider ReactRouterRoute={Route}>
