@@ -22,7 +22,8 @@ const AppContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   color: rgba(232, 230, 227, 0.85);
-  background-color: rgb(27, 29, 30);
+  // background-color: rgb(27, 29, 30);
+  background-color: rgb(250, 250, 250);
   ${({ isMobile }) => isMobile && 'overflow-x: hidden;'}
   max-width: 100%;
 `;

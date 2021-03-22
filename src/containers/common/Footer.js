@@ -9,9 +9,9 @@ const FooterSeparator = styled.span`
 
 const FooterContainer = styled.div`
   width: 100%;
-  color: #fff;
+  color: #000;
   margin-top: 48px;
-  background-color: rgb(27, 28, 29);
+  background-color: #eee;
 `;
 
 const FooterContentContainer = styled.div`

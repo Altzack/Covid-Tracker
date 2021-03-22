@@ -18,8 +18,8 @@ const AppHeaderContainer = styled.div`
   font-family: Rubik;
   z-index: 99;
   /*background-color: #ff294a;*/
-  color: #fff;
-  background-color: rgb(42, 43, 44);
+  color: #000;
+  background-color: #eee;
 `;
 
 const FooterSeparator = styled.span`
@@ -32,7 +32,7 @@ const HeaderSection = styled.div`
   display: flex;
   align-items: center;
   width: 33%;
-  color: #fff;
+  color: #000;
 `;
 
 const HeaderContentContainer = styled.div`
@@ -47,7 +47,7 @@ const HeaderContentContainer = styled.div`
 `;
 
 const StyledHeader = styled.h3`
-  color: #fff;
+  color: #000;
   margin-bottom: 0;
   :hover {
     color: #1890ff;
@@ -55,7 +55,7 @@ const StyledHeader = styled.h3`
 `;
 
 const StyledTitle = styled.div`
-  color: #fff;
+  color: #000;
   align-items: center;
   font-size: 30px;
 `;
