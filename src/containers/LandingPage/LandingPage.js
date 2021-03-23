@@ -1,13 +1,11 @@
-import React, { useContext, useState } from 'react';
-import List from '../List/List';
-import CountriesList from '../CountriesList/CountriesList';
+import React, { useState } from 'react';
+// import List from '../List/List';
+// import CountriesList from '../CountriesList/CountriesList';
 import styled from 'styled-components/macro';
 import { Divider, Button } from 'antd';
-import { SmallScreenOnly } from '../common/responsiveComponents';
-import AppContext from '../../AppContext';
+// import AppContext from '../../AppContext';
 import CardListUS from '../CardList/CardListUS';
 import CardListGlobal from '../CardList/CardListGlobal';
-import { FaLeaf } from 'react-icons/fa';
 
 const LandingContainer = styled.div`
   @media (min-width: 900px) {
@@ -54,7 +52,7 @@ const ButtonContainer = styled.div`
 // `;
 
 export default function LandingPage() {
-  const context = useContext(AppContext);
+  // const context = useContext(AppContext);
   const [visible, setVisible] = useState('US');
   return (
     <>
