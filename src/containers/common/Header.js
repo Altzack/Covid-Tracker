@@ -96,7 +96,7 @@ export default function Header() {
               <StyledTitle>Covid Tracker</StyledTitle>
               <StyledTitle>
                 <RiVirusFill
-                  style={{ marginTop: 12, marginLeft: 12, color: 'green' }}
+                  style={{ marginTop: 12, marginLeft: 8, color: 'green' }}
                 />
               </StyledTitle>
             </LogoLink>
@@ -124,12 +124,10 @@ export default function Header() {
               to="/"
               style={{ display: 'inline-flex', alignItems: 'center' }}
             >
-              <StyledTitle style={{ fontSize: 16.5 }}>
-                Covid Tracker
-              </StyledTitle>
+              <StyledTitle style={{ fontSize: 17 }}>Covid Tracker</StyledTitle>
               <StyledTitle>
                 <RiVirusFill
-                  style={{ marginTop: 12, marginLeft: 12, color: 'green' }}
+                  style={{ marginTop: 12, marginLeft: 8, color: 'green' }}
                 />
               </StyledTitle>
             </LogoLink>

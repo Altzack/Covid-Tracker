@@ -39,24 +39,33 @@ export default function List() {
       dataIndex: 'state',
       key: 'state',
     },
-    {
-      title: 'Population',
-      dataIndex: 'population',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.population - b.population,
-    },
+    // {
+    //   title: 'Population',
+    //   dataIndex: 'population',
+    //   defaultSortOrder: 'descend',
+    //   key: 'population',
+    //   sorter: (a, b) =>
+    //     parseInt(a.population.toString().replace(/[, ]+/g, ' ').trim()) -
+    //     parseInt(b.population.toString().replace(/[, ]+/g, ' ').trim()),
+    // },
 
     {
       title: 'Cases',
       dataIndex: 'cases',
       key: 'cases',
-      sorter: (a, b) => a.cases - b.cases,
+      defaultSortOrder: 'descend',
+      sorter: (a, b) =>
+        parseInt(a.cases.toString().replace(/[, ]+/g, ' ').trim()) -
+        parseInt(b.cases.toString().replace(/[, ]+/g, ' ').trim()),
     },
     {
       title: 'Deaths',
       dataIndex: 'deaths',
       key: 'deaths',
-      sorter: (a, b) => a.deaths - b.deaths,
+      defaultSortOrder: 'descend',
+      sorter: (a, b) =>
+        parseInt(a.deaths.toString().replace(/[, ]+/g, ' ').trim()) -
+        parseInt(b.deaths.toString().replace(/[, ]+/g, ' ').trim()),
     },
   ];
 
@@ -70,9 +79,9 @@ export default function List() {
     };
   });
 
-  function onChange(pagination, filters, sorter, extra) {
-    console.log('params', pagination, filters, sorter, extra);
-  }
+  //   function onChange(pagination, filters, sorter, extra) {
+  //     console.log('params', pagination, filters, sorter, extra);
+  //   }
 
   //   render() {
 
@@ -108,7 +117,6 @@ export default function List() {
             dataSource={covidData}
             size={isSmallScreen ? 'small' : 'large'}
             tableLayout="auto"
-            onChange={onChange}
             title={() => 'United States Coronavirus Data'}
             bordered
           />

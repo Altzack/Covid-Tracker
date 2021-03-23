@@ -20,13 +20,10 @@ const PageContainer = styled(Row)`
   //   align-items: center;
   //   width: 100%;
   //   flex-direction: column;
-  margin-top: 30px;
+  //   margin-top: 30px;
   //   flex-wrap: wrap;
   //   background-color: rgb(27, 29, 30);
-  @media (min-width: 600px) {
-    margin-bottom: 50px;
-    margin-top: 0;
-  }
+
   display: flex;
   justify-content: center;
 `;
@@ -68,6 +65,7 @@ export default function CountriesList() {
       dataIndex: 'active',
       key: 'active',
       sorter: (a, b) => a.deaths - b.deaths,
+      responsive: ['330px'],
     },
   ];
 
@@ -80,9 +78,9 @@ export default function CountriesList() {
     };
   });
 
-  function onChange(pagination, filters, sorter, extra) {
-    console.log('params', pagination, filters, sorter, extra);
-  }
+  //   function onChange(pagination, filters, sorter, extra) {
+  //     console.log('params', pagination, filters, sorter, extra);
+  //   }
 
   //   render() {
 
@@ -118,7 +116,6 @@ export default function CountriesList() {
             dataSource={covidData}
             size={isSmallScreen ? 'small' : 'large'}
             tableLayout="auto"
-            onChange={onChange}
             title={() => 'Global Coronavirus Data'}
             bordered
           />
