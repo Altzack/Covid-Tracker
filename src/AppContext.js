@@ -4,7 +4,7 @@ const AppContext = React.createContext({
   covidData: [],
   loading: true,
   countriesData: [],
-  visible: 'US',
+  visible: 'Global',
   setVisible: () => {},
 });
 

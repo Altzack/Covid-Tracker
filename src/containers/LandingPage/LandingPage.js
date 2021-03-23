@@ -53,32 +53,30 @@ const ButtonContainer = styled.div`
 
 export default function LandingPage() {
   // const context = useContext(AppContext);
-  const [visible, setVisible] = useState('US');
+  const [visible, setVisible] = useState('Global');
   return (
     <>
       {visible === 'US' ? (
         <>
-          <Title>US Covid Data</Title>
+          <Title>United States Covid Data</Title>
           <ButtonContainer>
-            <Button style={{ marginRight: 10 }} disabled>
-              US
-            </Button>
-            <Button style={{}} onClick={() => setVisible('Global')}>
+            <Button
+              style={{ marginRight: 10 }}
+              onClick={() => setVisible('Global')}
+            >
               Global
             </Button>
+            <Button disabled>United States</Button>
           </ButtonContainer>
         </>
       ) : (
         <>
           <Title>Global Covid Data</Title>
           <ButtonContainer>
-            <Button
-              onClick={() => setVisible('US')}
-              style={{ marginRight: 10 }}
-            >
-              US
+            <Button style={{ marginRight: 10 }} disabled>
+              Global
             </Button>
-            <Button disabled>Global</Button>
+            <Button onClick={() => setVisible('US')}>United States</Button>
           </ButtonContainer>
         </>
       )}
@@ -100,13 +98,13 @@ export default function LandingPage() {
       </div>
 
       <LandingContainer>
-        {visible === 'US' ? (
+        {visible === 'Global' ? (
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <CardListUS />
+            <CardListGlobal />
           </div>
         ) : (
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <CardListGlobal />
+            <CardListUS />
           </div>
         )}
         {/* <SmallScreenOnly>
