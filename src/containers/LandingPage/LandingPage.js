@@ -56,23 +56,31 @@ export default function LandingPage() {
   const [visible, setVisible] = useState('US');
   return (
     <>
-      <Title>Daily updated COVID-19 data</Title>
       {visible === 'US' ? (
-        <ButtonContainer>
-          <Button style={{ marginRight: 10 }} disabled>
-            US
-          </Button>
-          <Button style={{}} onClick={() => setVisible('Global')}>
-            Global
-          </Button>
-        </ButtonContainer>
+        <>
+          <Title>US Covid Data</Title>
+          <ButtonContainer>
+            <Button style={{ marginRight: 10 }} disabled>
+              US
+            </Button>
+            <Button style={{}} onClick={() => setVisible('Global')}>
+              Global
+            </Button>
+          </ButtonContainer>
+        </>
       ) : (
-        <ButtonContainer>
-          <Button onClick={() => setVisible('US')} style={{ marginRight: 10 }}>
-            US
-          </Button>
-          <Button disabled>Global</Button>
-        </ButtonContainer>
+        <>
+          <Title>Global Covid Data</Title>
+          <ButtonContainer>
+            <Button
+              onClick={() => setVisible('US')}
+              style={{ marginRight: 10 }}
+            >
+              US
+            </Button>
+            <Button disabled>Global</Button>
+          </ButtonContainer>
+        </>
       )}
 
       {/* // <ButtonContainer>
