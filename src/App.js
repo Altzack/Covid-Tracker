@@ -141,8 +141,6 @@ class App extends Component {
   };
 
   setCountriesData = (data) => {
-    console.log(data);
-
     this.setState({
       countriesData: data,
       loading: false,

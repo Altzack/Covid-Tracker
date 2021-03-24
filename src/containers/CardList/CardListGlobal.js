@@ -1,33 +1,46 @@
 import React, { useContext } from 'react';
-import { Card } from 'antd';
+import { Card, Divider } from 'antd';
 import AppContext from '../../AppContext';
 import styled from 'styled-components/macro';
 
 const StyledCard = styled(Card)`
-  width: 300px;
+  width: 320px;
   margin-top: 10px;
   @media (min-width: 760px) {
     width: 450px;
   }
 `;
 
-export default function CardListUS() {
+export default function CardListGlobal() {
   const context = useContext(AppContext);
 
   const list = context.countriesData.map((data) => {
     return (
-      <StyledCard
-        id={context.value === 1 ? context.cases : context.deaths}
-        title={data.country}
-      >
-        <p>
-          <span style={{ fontWeight: 300 }}>Cases: </span>
-          {Number(data.cases).toLocaleString()}
-        </p>
-        <p>
-          <span style={{ fontWeight: 300 }}>Deaths: </span>
-          {Number(data.deaths).toLocaleString()}
-        </p>
+      <StyledCard key={data.country} title={data.country}>
+        <div>
+          <span style={{ fontWeight: 350 }}>Cases: </span>
+          <span style={{ fontWeight: 300 }}>
+            {Number(data.cases).toLocaleString()}
+          </span>
+          <Divider type="vertical" />
+          <span style={{ fontWeight: 350 }}>Today: </span>
+          <span style={{ fontWeight: 300 }}>
+            {Number(data.todayCases).toLocaleString()}
+          </span>
+          <Divider></Divider>
+        </div>
+        <div>
+          <span style={{ fontWeight: 350 }}>Deaths: </span>
+          <span style={{ fontWeight: 300 }}>
+            {Number(data.deaths).toLocaleString()}
+          </span>
+          <Divider type="vertical" />
+          <span style={{ fontWeight: 350 }}>Today: </span>
+          <span style={{ fontWeight: 300 }}>
+            {' '}
+            {Number(data.todayDeaths).toLocaleString()}
+          </span>
+        </div>
       </StyledCard>
     );
   });

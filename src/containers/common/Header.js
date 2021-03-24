@@ -146,14 +146,14 @@ export default function Header() {
             style={{ textDecoration: 'none', color: '#000' }}
             to="/"
           >
-            <h3>About</h3>
+            <h3>Home</h3>
           </Link>
           <Link
             onClick={onClose}
             style={{ textDecoration: 'none', color: '#000' }}
             to="/"
           >
-            <h3>Blah</h3>
+            {/* <h3>Blah</h3> */}
           </Link>
         </Drawer>
       </SmallScreenOnly>

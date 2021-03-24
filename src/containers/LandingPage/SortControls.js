@@ -55,6 +55,33 @@ export default function SortControls() {
     context.setCovidData(data);
   };
 
+  const sortGlobalAlpha = () => {
+    const data = context.countriesData.sort((a, b) => {
+      if (a.country < b.country) {
+        return -1;
+      }
+      if (a.country > b.country) {
+        return 1;
+      }
+      return 0;
+    });
+
+    context.setCountriesData(data);
+  };
+
+  const sortUSAlpha = () => {
+    const data = context.covidData.sort((a, b) => {
+      if (a.state < b.state) {
+        return -1;
+      }
+      if (a.state > b.state) {
+        return 1;
+      }
+      return 0;
+    });
+    context.setCovidData(data);
+  };
+
   const onChange = async (e) => {
     context.setValue(e.target.value);
     // e === 2
@@ -72,8 +99,12 @@ export default function SortControls() {
     //     });
 
     // return context.countriesData;
-    e.target.value === 2 ? sortGlobalDeath() : sortGlobalCase();
-    e.target.value === 2 ? sortUSDeath() : sortUSCase();
+    if (e.target.value === 2) sortGlobalDeath();
+    if (e.target.value === 1) sortGlobalCase();
+    if (e.target.value === 1) sortUSCase();
+    if (e.target.value === 2) sortUSDeath();
+    if (e.target.value === 3) sortGlobalAlpha();
+    if (e.target.value === 3) sortUSAlpha();
   };
 
   return (
@@ -88,6 +119,7 @@ export default function SortControls() {
         <Radio.Group onChange={onChange} value={context.value}>
           <Radio value={1}>Cases</Radio>
           <Radio value={2}>Deaths</Radio>
+          <Radio value={3}>Alphabetical</Radio>
         </Radio.Group>
       </div>
     </Container>
