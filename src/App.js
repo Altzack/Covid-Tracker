@@ -52,6 +52,7 @@ class App extends Component {
       covidData: [],
       loading: true,
       countriesData: [],
+      value: 1,
     };
   }
 
@@ -62,7 +63,86 @@ class App extends Component {
     });
   };
 
+  sortUSCase = () => {
+    const data = this.state.covidData.sort((a, b) => {
+      return b.actuals.cases - a.actuals.cases;
+    });
+    this.setState({
+      covidData: data,
+    });
+  };
+
+  // usListFunc = () => {
+  //   this.state.covidData.map((data) => {
+  //     return (
+  //       <StyledCard title={data.state}>
+  //         <p>
+  //           <span style={{ fontWeight: 300 }}>Cases: </span>
+  //           {Number(data.actuals.cases).toLocaleString()}
+  //         </p>
+  //         <p>
+  //           <span style={{ fontWeight: 300 }}>Deaths: </span>
+  //           {Number(data.actuals.deaths).toLocaleString()}
+  //         </p>
+  //       </StyledCard>
+  //     );
+  //   });
+  //   return;
+  // };
+  // USList = this.usListFunc();
+
+  // sortUS = () => {
+  //   this.state.value === 1
+  //     ? this.USList.sort((a, b) => {
+  //         return b.covidData.cases - a.covidData.cases;
+  //       })
+  //     : this.USList.sort((a, b) => {
+  //         return b.covidData.deaths - a.covidData.deaths;
+  //       });
+  //   return this.USList;
+  // };
+
+  // countryListFunc = () => {
+  //   this.state.countriesData.map((data) => {
+  //     return (
+  //       <StyledCard title={data.country}>
+  //         <p>
+  //           <span style={{ fontWeight: 300 }}>Cases: </span>
+  //           {Number(data.cases).toLocaleString()}
+  //         </p>
+  //         <p>
+  //           <span style={{ fontWeight: 300 }}>Deaths: </span>
+  //           {Number(data.deaths).toLocaleString()}
+  //         </p>
+  //       </StyledCard>
+  //     );
+  //   });
+  // };
+  // globalList = this.countryListFunc();
+
+  // sortGlobal = () => {
+  //   this.state.value === 1
+  //     ? this.globalList.sort((a, b) => {
+  //         return b.countriesData.cases - a.countriesData.cases;
+  //       })
+  //     : this.globalList.sort((a, b) => {
+  //         return b.countriesData.deaths - a.countriesData.deaths;
+  //       });
+  //   return this.globalList;
+  // };
+
+  // sortedUSList = this.sortUS();
+  // sortedCountryList = this.sortGlobal();
+
+  setValue = (data) => {
+    this.setState({
+      value: data,
+    });
+  };
+
   setCountriesData = (data) => {
+    console.log(data);
+
     this.setState({
       countriesData: data,
       loading: false,
@@ -81,6 +161,7 @@ class App extends Component {
         return res.json();
       })
       .then(this.setCovidData)
+      .then(this.sortUSCase)
       .catch((err) => {
         message.error(`Please try again later: ${err}`);
       });
@@ -106,6 +187,7 @@ class App extends Component {
   componentDidMount = () => {
     this.getCovidData();
     this.getCountriesData();
+    this.sortUSCase();
   };
 
   render() {
@@ -113,11 +195,16 @@ class App extends Component {
       covidData: this.state.covidData || [],
       loading: this.state.loading,
       countriesData: this.state.countriesData,
+      value: this.state.value,
+      setValue: this.setValue,
+      sortedGlobal: this.sortedCountryList,
+      setCovidData: this.setCovidData,
+      setCountriesData: this.setCountriesData,
+      getCovidData: this.getCountriesData,
     };
 
     return (
       <AppContext.Provider value={contextValues}>
-        {console.log(this.state.countriesData)}
         <>
           <Router>
             <QueryParamProvider ReactRouterRoute={Route}>

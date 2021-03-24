@@ -16,7 +16,10 @@ export default function CardListUS() {
 
   const list = context.covidData.map((data) => {
     return (
-      <StyledCard title={data.state}>
+      <StyledCard
+        id={context.value === 1 ? data.actuals.cases : data.actuals.deaths}
+        title={data.state}
+      >
         <p>
           <span style={{ fontWeight: 300 }}>Cases: </span>
           {Number(data.actuals.cases).toLocaleString()}
@@ -28,5 +31,19 @@ export default function CardListUS() {
       </StyledCard>
     );
   });
+
+  //   const newlist = [...list];
+
+  //   const sortUS = () => {
+  //     context.value === 1
+  //       ? newlist.sort((a, b) => {
+  //           return b.context.covidData.cases - a.context.covidData.cases;
+  //         })
+  //       : newlist.sort((a, b) => {
+  //           return b.context.covidData.deaths - a.context.covidData.deaths;
+  //         });
+  //     return newlist;
+  //   };
+
   return <div>{list}</div>;
 }

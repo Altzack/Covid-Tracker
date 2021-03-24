@@ -6,6 +6,12 @@ const AppContext = React.createContext({
   countriesData: [],
   visible: 'Global',
   setVisible: () => {},
+  value: 1,
+  setValue: () => {},
+  sortedCountryList: () => {},
+  setCovidData: () => {},
+  setCountriesData: () => {},
+  getCovidData: () => {},
 });
 
 export default AppContext;

@@ -6,6 +6,7 @@ import { Divider, Button } from 'antd';
 // import AppContext from '../../AppContext';
 import CardListUS from '../CardList/CardListUS';
 import CardListGlobal from '../CardList/CardListGlobal';
+import SortControls from './SortControls';
 
 const LandingContainer = styled.div`
   @media (min-width: 900px) {
@@ -17,13 +18,13 @@ const LandingContainer = styled.div`
 const Title = styled.div`
   text-align: center;
   font-size: 20px;
-  padding: 10px;
+  // padding: 10px;
   font-weight: 350;
+  margin-bottom: 20px;
   // width: 84%;
   color: green;
   @media (min-width: 800px) {
     font-size: 25px;
-    text-align: center;
     // width: 58%;
   }
 `;
@@ -31,10 +32,20 @@ const Title = styled.div`
 const ButtonContainer = styled.div`
   text-align: center;
   // width: calc(100% - 200px);
+  width: 100%;
   padding: 5px;
-  // @media (min-width: 800px) {
-  //   width: 58%;
-  // }
+  @media (min-width: 800px) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+const InnerButtonContainer = styled.div`
+  @media (min-width: 800px) {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
 `;
 
 // const Button = styled.button`
@@ -57,9 +68,18 @@ export default function LandingPage() {
   return (
     <>
       {visible === 'US' ? (
-        <>
-          <Title>United States Covid Data</Title>
-          <ButtonContainer>
+        <ButtonContainer>
+          <div
+            style={{
+              display: 'flex',
+              marginBottom: 20,
+
+              justifyContent: 'center',
+            }}
+          >
+            <SortControls />
+          </div>
+          <InnerButtonContainer>
             <Button
               style={{ marginRight: 10 }}
               onClick={() => setVisible('Global')}
@@ -67,18 +87,26 @@ export default function LandingPage() {
               Global
             </Button>
             <Button disabled>United States</Button>
-          </ButtonContainer>
-        </>
+          </InnerButtonContainer>
+        </ButtonContainer>
       ) : (
-        <>
-          <Title>Global Covid Data</Title>
-          <ButtonContainer>
+        <ButtonContainer>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginBottom: 20,
+            }}
+          >
+            <SortControls />
+          </div>
+          <InnerButtonContainer>
             <Button style={{ marginRight: 10 }} disabled>
               Global
             </Button>
             <Button onClick={() => setVisible('US')}>United States</Button>
-          </ButtonContainer>
-        </>
+          </InnerButtonContainer>
+        </ButtonContainer>
       )}
 
       {/* // <ButtonContainer>
@@ -99,11 +127,29 @@ export default function LandingPage() {
 
       <LandingContainer>
         {visible === 'Global' ? (
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'column',
+            }}
+          >
+            <Title>Global Covid Data</Title>
+
             <CardListGlobal />
           </div>
         ) : (
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'column',
+            }}
+          >
+            <Title>United States Covid Data</Title>
+
             <CardListUS />
           </div>
         )}

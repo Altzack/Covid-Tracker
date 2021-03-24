@@ -12,11 +12,14 @@ const StyledCard = styled(Card)`
 `;
 
 export default function CardListUS() {
-  const data = useContext(AppContext);
+  const context = useContext(AppContext);
 
-  const list = data.countriesData.map((data) => {
+  const list = context.countriesData.map((data) => {
     return (
-      <StyledCard title={data.country}>
+      <StyledCard
+        id={context.value === 1 ? context.cases : context.deaths}
+        title={data.country}
+      >
         <p>
           <span style={{ fontWeight: 300 }}>Cases: </span>
           {Number(data.cases).toLocaleString()}
@@ -28,5 +31,18 @@ export default function CardListUS() {
       </StyledCard>
     );
   });
+  //   const newlist = [...list];
+
+  // const sortGlobal = () => {
+  //   data.value === 1
+  //     ? newlist.sort((a, b) => {
+  //         return b.data.countriesData.cases - a.data.countriesData.cases;
+  //       })
+  //     : newlist.sort((a, b) => {
+  //         return b.data.countriesData.deaths - a.data.countriesData.deaths;
+  //       });
+  //   return newlist;
+  // };
+
   return <div>{list}</div>;
 }
