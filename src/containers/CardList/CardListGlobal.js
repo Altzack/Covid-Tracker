@@ -22,11 +22,19 @@ export default function CardListGlobal() {
           <span style={{ fontWeight: 300 }}>
             {Number(data.cases).toLocaleString()}
           </span>
-          <Divider type="vertical" />
-          <span style={{ fontWeight: 350 }}>Today: </span>
-          <span style={{ fontWeight: 300 }}>
-            {Number(data.todayCases).toLocaleString()}
-          </span>
+          {data.todayCases !== 0 ? (
+            <>
+              <Divider type="vertical" />
+
+              <span style={{ fontWeight: 350 }}>Today: </span>
+              <span style={{ fontWeight: 300 }}>
+                {Number(data.todayCases).toLocaleString()}
+              </span>
+            </>
+          ) : (
+            ''
+          )}
+
           <Divider></Divider>
         </div>
         <div>
@@ -34,12 +42,19 @@ export default function CardListGlobal() {
           <span style={{ fontWeight: 300 }}>
             {Number(data.deaths).toLocaleString()}
           </span>
-          <Divider type="vertical" />
-          <span style={{ fontWeight: 350 }}>Today: </span>
-          <span style={{ fontWeight: 300 }}>
-            {' '}
-            {Number(data.todayDeaths).toLocaleString()}
-          </span>
+
+          {data.todayDeaths !== 0 ? (
+            <>
+              <Divider type="vertical" />
+
+              <span style={{ fontWeight: 350 }}>Today: </span>
+              <span style={{ fontWeight: 300 }}>
+                {Number(data.todayDeaths).toLocaleString()}
+              </span>
+            </>
+          ) : (
+            ''
+          )}
         </div>
       </StyledCard>
     );
