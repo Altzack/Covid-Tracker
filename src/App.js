@@ -8,6 +8,7 @@ import {
   withRouter,
 } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
+import { message } from 'antd';
 import FourOhFour from './containers/common/FourOhFour';
 import { useIsTabletOrMobile } from './containers/common/responsiveComponents';
 import Footer from './containers/common/Footer';
@@ -15,7 +16,6 @@ import Header from './containers/common/Header';
 import AppContext from './AppContext';
 import LandingPage from './containers/LandingPage/LandingPage';
 import config from './config';
-import { message } from 'antd';
 
 const AppContainer = styled.div`
   display: flex;
@@ -184,7 +184,6 @@ class App extends Component {
 
   componentDidMount = () => {
     this.getCovidData();
-    this.getCountriesData();
     this.sortUSCase();
   };
 

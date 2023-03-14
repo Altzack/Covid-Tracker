@@ -64,7 +64,7 @@ const InnerButtonContainer = styled.div`
 
 export default function LandingPage() {
   // const context = useContext(AppContext);
-  const [visible, setVisible] = useState('Global');
+  const [visible, setVisible] = useState('US');
   return (
     <>
       {visible === 'US' ? (
@@ -80,12 +80,6 @@ export default function LandingPage() {
             <SortControls />
           </div>
           <InnerButtonContainer>
-            <Button
-              style={{ marginRight: 10 }}
-              onClick={() => setVisible('Global')}
-            >
-              Global
-            </Button>
             <Button disabled>United States</Button>
           </InnerButtonContainer>
         </ButtonContainer>
